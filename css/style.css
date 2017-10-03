@@ -1,0 +1,525 @@
+/*  ||||||||||||||||||FreeCode||||||||||||||||||||||
+
+    CSS Style Desing By Miller Correa 
+    For Web Responsive,
+    Name:ResponsiveHTML5 
+    
+    Description:This template implements CSS3 and HTML5 to generate a basic design responsive of easy handling Only implements the sidebar in mobile devices and hides the navigation menu in them also resets every browser.
+    ||||||||||||||||||FreeCode||||||||||||||||||||||
+*/
+
+
+/*Inicia con el reseteo de caracteristicas del navegador 
+-
+--
+*/
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+table { border-collapse: collapse; border-spacing: 0; }
+td, th, caption { font-weight: normal; text-align: left; }
+img, fieldset { border: 0; }
+ol { padding-left: 1.4em; list-style: decimal; }
+ul { padding-left: 1.4em; list-style:square; }
+q:before, q:after { content:''; }
+
+a, abbr, acronym, address, applet, article, aside, audio, b, blockquote, big, body, center, canvas, caption, cite, code, command, datalist, dd, del, details, dfn, dl, div, dt, em, embed, fieldset, figcaption, figure, font, footer, form,  h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, keygen, label, legend, li, meter, nav, object, ol, output, p, pre, progress, q, s, samp, section, small, span, source, strike, strong, sub, sup,table, tbody, tfoot, thead, th, tr, tdvideo, tt,u, ul, var {background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top}
+ol, ul {list-style:none}
+blockquote, q {quotes:none}
+table, table td {padding:0;border:none;border-collapse:collapse}
+img {vertical-align:top}
+embed {vertical-align:top}
+* {border:none}
+
+
+
+/*
+-Fin Reseteo
+-
+-
+*/
+/*Establecimiento de las capas propias que venian predefinidas  */
+
+
+
+body{
+    
+    background-image: url("../Images/Background.jpg"); /*Colocamos la imagen de fondo*/
+    background-position: 0% 0%;
+}
+p{
+    color: #FFFFFF;
+    font-size: 1.7vw;
+    text-align: justify;
+}
+h1{
+    text-align: center;
+    font-size: 4vw;
+    font-family:serif;
+    color:white;
+    font-style: oblique;
+    
+ 
+}
+
+h2{
+    font-size: 6vw;
+    text-align: center;
+    color: black;
+    font-family: sans-serif;
+}
+h3{
+    font-size: 5vw;
+    color:#7ab900; 
+   
+}
+h4{
+    font-family:cursive;
+    color: #6da611;
+    font-style: oblique;
+    font-size: 2vw;
+}
+
+figure{
+    display: inline;
+}
+
+/*Hasta este momento dimos estilo a las etiquetas predefinidas*/
+#Cabezera{
+    background-color: black; 
+    width: 97.5vw;    /* Definimos el tamaño respecto al dispositivo */
+    height: 10vw;
+    margin-left:1.25vw;    /*procuramos centrar el bloque con margenes auto*/ 
+    position: fixed;    /*Mantiene la barra aún haciendo scroll*/
+    z-index: 1;    /*Siempre sera superior a los otros elementos*/
+    border-radius: 0.5vw;    /*Redondeamos un poco las esquinas */
+    
+}
+
+
+#Cabezera .Name{        /*Name es el llamado del nombre dentro de la pagina*/
+    font-size:6vw;      /*Especifica el Tamaño inicio letra*/
+    margin:2vw;         /*Margin al inicio pagina*/
+    padding-right: 3vw;
+    color: #F2F2F2; 
+    float: left;        /*Pegar a la izquierda */
+    
+}
+
+#BarraNavegacion{
+    position: fixed;    /*Mantiene aún con scrall*/
+    
+    z-index: 100;    /*siempre encima */
+
+    margin-left: 34vw;    /*Como float no funciona uso un margin*/
+    margin-top: 1vw;
+    
+        
+    text-align: center;    /*hereda el centrado a los bloques inline*/
+   
+
+    padding: 2vw;    ;    /*Ajusto los items separados del borde */
+    
+    background-color: black;
+    width: 60vw;    /* Definimos el tamaño respecto al dispositivo */
+    height: 4vw;    /*el ancho es de 4vw pero el padding suma 2vw */
+   
+}
+
+#BarraNavegacion li {
+    display: inline;     /*los items quedaran juntos*/
+}
+
+#BarraNavegacion li a {  
+  
+    color: #F2F2F2;
+    text-decoration: none;/*Retiramos colores del Link*/
+    
+    padding-right:1vw;
+    padding-left:1vw;
+    
+    
+    line-height: normal;    /*Solo la letra es  presionable */
+    font-size: 2vw;
+}
+
+#BarraNavegacion li a:hover{     /*Cambios al pasar el mouse hover(flotar)*/
+    color:#7ab900;        
+    border-bottom: 0.2vw solid #7ab900;
+}
+
+
+/*Barra que solo sirve para dispositivos menores a 480px y reemplaza a BarraNavegacion*/
+
+#BarraLateral{
+    position: fixed;    /*Fija para poderla ver con scrolling*/
+    margin-top: 45vw;    /*Para mantener en la mitad la barra*/
+    width: 20vw;    /*Ancho para que no choque con el contenido*/
+    background-color: black;
+    float: left;
+    display: none;    /*Inicialmente no se muestra "trucoResponsive"*/
+    
+}
+
+#BarraLateral img:hover{
+    width: 9vw;    /*Al pasar el mouse aumento la imagen */
+}
+
+.image_holder {    /*Viene el contenido "oculto de la imagen "*/    
+    color: white;
+    text-align: center;
+    margin: 2vw;
+    
+}
+
+.image_info {
+    display: none;    /*Inicialmente la info no se ve */
+}	
+			/* La parte magica */
+.image_holder:hover .image_info{
+    display:inline;    /*truco "animacion" muestra el texto*/	
+}
+.image_holder:hover{
+    border-radius: 2vw;
+    background: -webkit-radial-gradient(#7ab900, black);    /*Degradado hacia el centro de verde a negro CSS3*/
+    background: -o-radial-gradient(#7ab900, black);
+    background: radial-gradient(#7ab900, black);
+}
+
+ hr { /*Barrita divsoria de paginas*/
+   border-top: 3px solid black; /*Linea completa */
+   border-bottom: 2px dashed white; /*Linea interlineada*/
+   border-left:none; 
+   border-right:none; 
+   height: 6px; 
+ } 
+
+
+#ContenidoPrincipal{
+    
+   
+    padding: 2vw;
+
+    margin-top: 11vw;
+    
+
+           /*dejo la separacion de la primera caja pues no la ve */
+    border-style: solid;
+    border-top-width: 11vw ;        
+    z-index: 1;            /*Lo mando detras de todo */
+    
+    background-color: rgba(0, 84, 121, 0.7);
+    
+    width: 90vw;    /*Ancho del 90 porciento respecto al tamaño del dispositivo*/
+    margin:auto;/*procuramos centrar el bloque con margenes auto*/   
+
+}
+
+
+.Album .ImagenRectangular{    /*Imagen rectangular del album*/
+    margin: 1vw;
+    display: inline;    
+    border-radius:20px;
+    width: 25vw;
+    height: 15vw;
+   
+   
+    -webkit-transition: -webkit-transform 0.3s ease-in-out 0.1;
+}
+.Album .ImagenCuadrada{
+
+    margin: 1vw;
+    display: inline;    
+    border-radius:20px;
+    width: 15vw;
+    height: 15vw;
+   
+    -webkit-transition: -webkit-transform 0.3s ease-in-out 0.1;
+}
+.Album img:hover{
+    -webkit-transform:scale(1.5);    /*aumento de tamaño de la imagen al pasar el mouse*/
+    
+}
+.Slider{    /*Slider principal que se "mueve"*/
+    margin-left: 5vw;
+    width: 80vw;
+    overflow: hidden;    /*Solo se ve lo que cabe en el slider*/
+}
+.Slider ul{
+    padding: 0;
+    display: flex;    /*Posicionarlas juntas*/
+    animation: correr 15s infinite;    /*creamos la amimacion y tarda 15segundos correr se repite */
+}
+
+.Slider img{
+    margin: 0;
+    width: 80vw;
+    height:  40vw;
+}
+
+@keyframes correr {    /*Moviendo los margin simulamos movimiento*/
+    0%{ margin-left: 0vw;}
+    20%{ margin-left: 0vw;}
+    
+    25%{ margin-left: -80vw;}
+    30%{ margin-left: -80vw;}
+    
+    35%{ margin-left: -160vw;}
+    40%{ margin-left: -160vw;}
+    
+    45%{ margin-left: -240vw;}
+    50%{ margin-left: -240vw;}
+    
+    45%{ margin-left: -240vw;}
+    40%{ margin-left: -240vw;}
+    
+    35%{ margin-left: -160vw;}
+    30%{ margin-left: -160vw;}
+    
+    25%{ margin-left: -80vw;}
+    20%{ margin-left: -80vw;}
+    
+    0%{margin-left: 0vw;}
+    
+    
+}
+
+.Banner{    /*imagenes principales estaticas*/
+    opacity: 0.8;    /*transparecia simple*/
+    width: 85vw;
+    height: 18vw;
+    margin: 2vw;
+    
+    border-radius: 2vw;
+    
+    
+}
+
+.TextoMovimiento{
+    
+    line-height: 7vw;    /*El Tamaño de la caja corresponde al tamaño del texto */
+    display: flex;    /*Para que el texto quede junto similar a flow:right*/
+    margin: 0 0 0 0;    /*Resetea los margenes a 0*/
+    margin: auto;    /*Define unos margenes minimos*/
+    overflow: hidden;    /*Mostrara solamente lo que cabe dentro de la caja*/
+    height: 7vw;
+    margin-left: 11vw;
+    
+    
+
+    
+}
+
+
+.TextoMovimiento ul{
+    list-style: none;    /*Eliminamos el estilo propio de la lista los puntos */
+    padding-left: 7px;    /**/
+    animation: subir 3s infinite; /*Aplicamos una "animacion " de 7 segundos en todo momento*/
+  
+}
+
+@keyframes subir {
+    
+    0%{margin-top:0px;}         /*Inicio de la animacion caja normal*/
+    20%{margin-top:0px;}     /**/
+
+    25%{margin-top:-7vw;}
+    30%{margin-top:-7vw;}     /*Al transcurrir el 25% del tiempo "subimos el margin" lo que hace flotar los elementos fuera de la caja y no se ven */
+      
+    40%{margin-top:-14vw;}
+    50%{margin-top:-14vw;}
+    
+    55%{margin-top:-7vw;}
+    60%{margin-top:-7vw;}
+    
+    70%{margin-top:0vw;}
+    75%{margin-top:0vw;}
+}
+.two-columns {  /*texto a dos columnas */
+    
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    
+
+}
+#InformacionInstitucional{    /*Footer */
+    text-align: center;
+    
+    background-color: rgba(182, 191, 178, 0.7);
+    margin: auto;
+    width:100vw;
+    height: 4vw;
+    min-height: 100px;
+
+    
+}
+#Mapa{    /*Mapa Geografico centrado */
+  text-align: center;
+    margin: 10vw;
+
+
+}
+#Redes{   
+
+    text-align: center;
+}
+
+#Redes .Icon{   /*Iconos de las redes sociales */  
+    width: 8vw;
+    height:8vw;
+}
+#Redes .Icon:hover{
+    width: 10vw;
+    height:10vw;
+}
+
+.Phone{    /*telefono de contacto */
+    font-size: 10vw;
+    text-align: center;
+    font:normal 10vw Arial;
+     color:#FFFFFF;
+     text-shadow: 0 1px 0 #ccc,    /*Sombra que asimila 3d*/
+     0 0.1vw 0 #c9c9c9,
+     0 0.3vw 0 #bbb,
+     0 4px 0 #b9b9b9,
+     0 5px 0 #aaa,
+     0 6px 1px rgba(0,0,0,.1),
+     0 0 5px rgba(0,0,0,.1),
+     0 1px 3px rgba(0,0,0,.3),
+     0 3px 5px rgba(0,0,0,.2),
+     0 5px 10px rgba(0,0,0,.25),
+     0 1vw 10px rgba(0,0,0,.2),
+     0 2vw 20px rgba(0,0,0,.15);
+}
+
+
+/*|||||||||||||||SliderGaleria|||||||||||||||||||||||||||*/
+
+
+
+
+/*||||||||||||||||||||||||||||||||||||||||||*/
+
+
+
+ /*cambios que ocurren cuando la página se consulta en una pantalla de menos de 480 pixeles a lo ancho y otra de menos de 780 pixeles.
+*/
+
+@media screen and (min-width:481px) and (max-width:780px){
+    #BarraLateral{   
+        display: none;
+    }
+    .two-columns {  
+    -webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+}
+
+   p{
+
+    font-size: 3vw;
+    }
+    
+
+}
+@media screen and (max-width:480px) and (min-width:0px){
+    /*body{    /*No scroll horizontal */
+    /*    overflow-y: scroll;
+	     overflow-x: hidden;
+    }
+    */
+    p{
+
+    font-size: 4vw;
+    }
+    #Cabezera{
+    
+        width: 100vw;    /* Definimos el tamaño respecto al dispositivo */
+        height: 12vw;
+
+        position:fixed;
+
+
+    }    
+    #BarraNavegacion{
+        overflow: hidden;
+        display: none;
+        
+    }
+    #BarraLateral{ 
+        z-index: 4;
+        
+        display: inline;
+        
+    }
+    #Cabezera .Name{
+        font-size:8vw;      /*Especifica el Tamaño inicio letra*/
+        
+    }
+    
+    #ContenidoPrincipal{
+        border-top-width: 19vw solid rgba(255, 0, 0,0.5);
+         /**Compensar el tamaño del title*/
+        
+        margin-left: 21vw;
+        width: 73vw;    /*Ancho sin el espacio del la barra de navegacion y el padding interno*/
+    
+    }
+    .Slider{
+        margin-left: 2vw;
+        width: 70vw;
+    }
+    .Slider img{
+        margin: 0vw;
+        width: 70vw;
+        height: 35vw;
+    }
+    
+    @keyframes correr {
+    0%{ margin-left: 0vw;}
+    20%{ margin-left: 0vw;}
+    
+    25%{ margin-left: -70vw;}
+    30%{ margin-left: -70vw;}
+    
+    35%{ margin-left: -140vw;}
+    40%{ margin-left: -140vw;}
+    
+    45%{ margin-left: -210vw;}
+    50%{ margin-left: -210vw;}
+    
+    45%{ margin-left: -210vw;}
+    40%{ margin-left: -210vw;}
+    
+    35%{ margin-left: -140vw;}
+    30%{ margin-left: -140vw;}
+    
+    25%{ margin-left: -70vw;}
+    20%{ margin-left: -70vw;}
+    
+    0%{margin-left: 0vw;}
+    
+    
+}
+    .TextoMovimiento{
+        margin-left: 1vw;    /*Ajusto el margin para que el texto no se salte*/
+    }
+     
+    .Banner{
+        width: 68vw;
+    }
+    .two-columns {  
+    -webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+}
+    
+  
+}
+
+
+
